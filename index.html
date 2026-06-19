@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ابول — دانشجوی لینوکس و امنیت سایبری. ۱۷ ساله، در حال یادگیری لینوکس، شبکه و تست نفوذ." />
+  <meta name="theme-color" content="#030303" />
+  <title>ابول — دانشجوی لینوکس و امنیت سایبری</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+Arabic:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ===== لایه‌های پس‌زمینه متحرک ===== -->
+  <div class="bg-layers" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-fog fog-a"></div>
+    <div class="bg-fog fog-b"></div>
+    <div class="bg-glow glow-a"></div>
+    <div class="bg-glow glow-b"></div>
+    <div class="bg-glow glow-c"></div>
+    <canvas id="particles"></canvas>
+    <div class="bg-scanline"></div>
+    <div class="bg-vignette"></div>
+  </div>
+
+  <!-- ===== نوار پیشرفت اسکرول ===== -->
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollBar"></span></div>
+
+  <!-- ===== ناوبری ===== -->
+  <header class="navbar" id="navbar">
+    <nav class="nav-inner" aria-label="ناوبری اصلی">
+      <a href="#home" class="brand" aria-label="خانه">
+        <span class="brand-bracket">[</span><span class="brand-name">A</span><span class="brand-bracket">]</span>
+        <span class="brand-text">abol<span class="brand-dim">@sec</span></span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="باز و بسته کردن منو" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active">خانه</a></li>
+        <li><a href="#about" class="nav-link">درباره من</a></li>
+        <li><a href="#skills" class="nav-link">مهارت‌ها</a></li>
+        <li><a href="#projects" class="nav-link">پروژه‌ها</a></li>
+        <li><a href="#roadmap" class="nav-link">نقشه راه</a></li>
+        <li><a href="#contact" class="nav-link">ارتباط با من</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ===== هیرو ===== -->
+    <section class="hero" id="home">
+      <div class="hero-inner">
+        <div class="hero-left reveal" data-reveal="right">
+          <p class="hero-eyebrow"><span class="dot"></span> سیستم آنلاین — دسترسی برقرار شد</p>
+          <h1 class="hero-title">
+            <span class="hero-name glitch" data-text="ابول">ابول</span>
+          </h1>
+          <h2 class="hero-subtitle">دانشجوی لینوکس و امنیت سایبری</h2>
+          <p class="hero-meta">۱۷ ساله · در حال یادگیری لینوکس، شبکه و تست نفوذ</p>
+          <p class="hero-desc">
+            دانشجویی پرانگیزه که در حال ساختن مهارت‌های عملی و واقعی است —
+            از مبانی لینوکس تا امنیت تهاجمی. هر گام از این مسیر را مستند می‌کنم.
+          </p>
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary">
+              <span>مشاهده پروژه‌ها</span>
+            </a>
+            <a href="https://github.com/senatur" target="_blank" rel="noopener" class="btn btn-ghost">
+              <span>گیت‌هاب من</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-right reveal" data-reveal="left">
+          <div class="terminal" id="terminal">
+            <div class="terminal-bar">
+              <span class="t-dot t-red"></span>
+              <span class="t-dot t-amber"></span>
+              <span class="t-dot t-green"></span>
+              <span class="terminal-title">abol@kali: ~</span>
+            </div>
+            <div class="terminal-body" id="terminalBody" dir="ltr" aria-live="polite"></div>
+          </div>
+        </div>
+      </div>
+      <a href="#about" class="scroll-cue" aria-label="اسکرول به بخش درباره من">
+        <span class="mouse"><span class="wheel"></span></span>
+        <span class="scroll-text">اسکرول</span>
+      </a>
+    </section>
+
+    <!-- ===== درباره من ===== -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head reveal" data-reveal="up">
+          <span class="section-index">۰۱</span>
+          <h2 class="section-title">درباره <span class="accent">من</span></h2>
+          <p class="section-sub">شخصی که پشت ترمینال نشسته است.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text reveal" data-reveal="up">
+            <p>
+              من <strong>ابول</strong> هستم، ۱۷ ساله و علاقه‌مند به حوزه لینوکس، شبکه و
+              امنیت سایبری. در حال یادگیری مهارت‌های عملی هستم — مدیریت سیستم را مطالعه
+              می‌کنم، زیرساخت شبکه را می‌فهمم و مفاهیم امنیت تهاجمی را به‌صورت عملی، و نه
+              صرفاً تئوری، بررسی می‌کنم.
+            </p>
+            <p>
+              هدف من توسعه مداوم دانش فنی، مستندسازی مسیر یادگیری در گیت‌هاب و ساخت
+              پروژه‌های واقعی در طول راه است. ادعای متخصص بودن ندارم — یک یادگیرنده‌ی
+              متمرکز و جاه‌طلب هستم که در حال ساختن پایه‌های محکم با هدف بلندمدتِ ورود
+              حرفه‌ای به دنیای امنیت سایبری و تست نفوذ است.
+            </p>
+
+            <div class="progress-block">
+              <div class="progress-row reveal" data-reveal="up">
+                <div class="progress-label"><span>لینوکس</span><span>۷۰٪</span></div>
+                <div class="progress-track"><span class="progress-fill" data-fill="70"></span></div>
+              </div>
+              <div class="progress-row reveal" data-reveal="up">
+                <div class="progress-label"><span>شبکه (Network+)</span><span>۳۵٪</span></div>
+                <div class="progress-track"><span class="progress-fill" data-fill="35"></span></div>
+              </div>
+              <div class="progress-row reveal" data-reveal="up">
+                <div class="progress-label"><span>امنیت سایبری</span><span>۰٪</span></div>
+                <div class="progress-track"><span class="progress-fill" data-fill="0"></span></div>
+              </div>
+              <div class="progress-row reveal" data-reveal="up">
+                <div class="progress-label"><span>تست نفوذ</span><span>۰٪</span></div>
+                <div class="progress-track"><span class="progress-fill" data-fill="0"></span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-side">
+            <div class="stat-grid">
+              <div class="stat-card reveal" data-reveal="up">
+                <span class="stat-num" data-count="17" data-fa="true">۰</span>
+                <span class="stat-label">سن</span>
+              </div>
+              <div class="stat-card reveal" data-reveal="up">
+                <span class="stat-text">امنیت سایبری</span>
+                <span class="stat-label">تمرکز فعلی</span>
+              </div>
+              <div class="stat-card reveal" data-reveal="up">
+                <span class="stat-text live"><span class="pulse-dot"></span>فعال</span>
+                <span class="stat-label">وضعیت یادگیری</span>
+              </div>
+              <div class="stat-card reveal" data-reveal="up">
+                <span class="stat-num" data-count="4" data-fa="true">۰</span>
+                <span class="stat-label">پروژه در حال ساخت</span>
+              </div>
+            </div>
+
+            <div class="interests-card reveal" data-reveal="up">
+              <h3>علاقه‌مندی‌های اصلی</h3>
+              <ul class="interest-list">
+                <li><span class="tick">▹</span> لینوکس</li>
+                <li><span class="tick">▹</span> شبکه</li>
+                <li><span class="tick">▹</span> تست نفوذ</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== مهارت‌ها ===== -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-head reveal" data-reveal="up">
+          <span class="section-index">۰۲</span>
+          <h2 class="section-title">مهارت‌های <span class="accent">اصلی</span></h2>
+          <p class="section-sub">پایه‌هایی که در حال ساختن و تقویت آن‌ها هستم.</p>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card reveal" data-reveal="up">
+            <div class="skill-icon">🐧</div>
+            <h3 dir="ltr">Linux Essentials</h3>
+            <p>سیستم فایل، دسترسی‌ها، پردازه‌ها و کار روزمره با خط فرمان.</p>
+          </article>
+          <article class="skill-card reveal" data-reveal="up">
+            <div class="skill-icon">🌐</div>
+            <h3>مبانی شبکه</h3>
+            <p>TCP/IP، ساب‌نتینگ، DNS و نحوه حرکت بسته‌ها در زیرساخت.</p>
+          </article>
+          <article class="skill-card reveal" data-reveal="up">
+            <div class="skill-icon">🛡️</div>
+            <h3>امنیت سایبری</h3>
+            <p>مثلث CIA، مدل‌های تهدید و مفاهیم اصلی دفاعی و تهاجمی.</p>
+          </article>
+          <article class="skill-card reveal" data-reveal="up">
+            <div class="skill-icon">🔧</div>
+            <h3 dir="ltr">Git &amp; GitHub</h3>
+            <p>کنترل نسخه، شاخه‌بندی و مستندسازی عمومی پروژه‌ها.</p>
+          </article>
+          <article class="skill-card reveal" data-reveal="up">
+            <div class="skill-icon">📄</div>
+            <h3 dir="ltr">HTML</h3>
+            <p>نشانه‌گذاری معنایی و دسترس‌پذیر به‌عنوان ستون فقرات وب.</p>
+          </article>
+          <article class="skill-card reveal" data-reveal="up">
+            <div class="skill-icon">🎨</div>
+            <h3 dir="ltr">CSS</h3>
+            <p>چیدمان واکنش‌گرا، انیمیشن و طراحی بصری مدرن.</p>
+          </article>
+          <article class="skill-card reveal" data-reveal="up">
+            <div class="skill-icon">⚡</div>
+            <h3 dir="ltr">JavaScript</h3>
+            <p>دستکاری DOM، رویدادها و افزودن تعامل به صفحات.</p>
+          </article>
+          <article class="skill-card reveal" data-reveal="up">
+            <div class="skill-icon">🧩</div>
+            <h3>حل مسئله</h3>
+            <p>شکستن مسائل پیچیده به اجزای کوچک و دیباگ روشمند.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== پروژه‌ها ===== -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-head reveal" data-reveal="up">
+          <span class="section-index">۰۳</span>
+          <h2 class="section-title">پروژه‌های <span class="accent">من</span></h2>
+          <p class="section-sub">کارهای عملی و یادگیری مستندشده.</p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card reveal" data-reveal="up">
+            <div class="project-thumb">
+              <img src="images/linux-lab.png" alt="تصویر گزارش آزمایشگاه Linux Essentials" loading="lazy" />
+              <span class="project-overlay"></span>
+            </div>
+            <div class="project-body">
+              <h3>گزارش Linux Essentials</h3>
+              <p>یک آزمایشگاه مستندشده شامل کارهای اصلی مدیریت لینوکس، دسترسی‌ها و گردش‌کار شل.</p>
+              <div class="tags">
+                <span class="tag">Linux</span><span class="tag">Bash</span><span class="tag">مستندات</span>
+              </div>
+              <a href="https://github.com/senatur" target="_blank" rel="noopener" class="btn btn-card">مشاهده مخزن</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-reveal="up">
+            <div class="project-thumb">
+              <img src="images/commands-reference.png" alt="تصویر پروژه مرجع دستورات لینوکس" loading="lazy" />
+              <span class="project-overlay"></span>
+            </div>
+            <div class="project-body">
+              <h3>مرجع دستورات لینوکس</h3>
+              <p>یک مرجع دسته‌بندی‌شده و گزیده از دستورات ضروری لینوکس همراه با مثال‌های عملی.</p>
+              <div class="tags">
+                <span class="tag">Linux</span><span class="tag">CLI</span><span class="tag">مرجع</span>
+              </div>
+              <a href="https://github.com/senatur" target="_blank" rel="noopener" class="btn btn-card">مشاهده مخزن</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-reveal="up">
+            <div class="project-thumb">
+              <img src="images/network-notes.png" alt="تصویر پروژه یادداشت‌های مبانی شبکه" loading="lazy" />
+              <span class="project-overlay"></span>
+            </div>
+            <div class="project-body">
+              <h3>یادداشت‌های شبکه</h3>
+              <p>یادداشت‌های ساختاریافته درباره TCP/IP، ساب‌نتینگ و پروتکل‌ها — حین مطالعه شبکه.</p>
+              <div class="tags">
+                <span class="tag">شبکه</span><span class="tag">TCP/IP</span><span class="tag">یادداشت</span>
+              </div>
+              <a href="https://github.com/senatur" target="_blank" rel="noopener" class="btn btn-card">مشاهده مخزن</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-reveal="up">
+            <div class="project-thumb">
+              <img src="images/portfolio.png" alt="تصویر وب‌سایت شخصی" loading="lazy" />
+              <span class="project-overlay"></span>
+            </div>
+            <div class="project-body">
+              <h3>وب‌سایت شخصی</h3>
+              <p>همین نمونه‌کار سینمایی و کاملاً واکنش‌گرا که از پایه با HTML، CSS و جاوااسکریپت ساخته شده.</p>
+              <div class="tags">
+                <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+              </div>
+              <a href="https://github.com/senatur" target="_blank" rel="noopener" class="btn btn-card">مشاهده مخزن</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== نقشه راه ===== -->
+    <section class="section" id="roadmap">
+      <div class="container">
+        <div class="section-head reveal" data-reveal="up">
+          <span class="section-index">۰۴</span>
+          <h2 class="section-title">مسیر <span class="accent">یادگیری</span></h2>
+          <p class="section-sub">مسیر از مبانی تا امنیت تهاجمی.</p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-line"><span class="timeline-progress" id="timelineProgress"></span></div>
+
+          <div class="tl-item reveal" data-reveal="up">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <span class="tl-step">مرحله ۰۱</span>
+              <h3 dir="ltr">Linux Essentials</h3>
+              <p>تسلط بر خط فرمان، سیستم فایل، دسترسی‌ها و مدیریت بسته‌ها.</p>
+            </div>
+          </div>
+          <div class="tl-item reveal" data-reveal="up">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <span class="tl-step">مرحله ۰۲</span>
+              <h3>شبکه</h3>
+              <p>مدل TCP/IP، ساب‌نتینگ، مسیریابی و پروتکل‌های اصلی شبکه.</p>
+            </div>
+          </div>
+          <div class="tl-item reveal" data-reveal="up">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <span class="tl-step">مرحله ۰۳</span>
+              <h3 dir="ltr">Bash Scripting</h3>
+              <p>خودکارسازی کارها، نوشتن اسکریپت‌های قابل استفاده مجدد و ابزارهای شل.</p>
+            </div>
+          </div>
+          <div class="tl-item reveal" data-reveal="up">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <span class="tl-step">مرحله ۰۴</span>
+              <h3 dir="ltr">Git &amp; GitHub</h3>
+              <p>گردش‌کار کنترل نسخه و مستندسازی عمومی هر پروژه.</p>
+            </div>
+          </div>
+          <div class="tl-item reveal" data-reveal="up">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <span class="tl-step">مرحله ۰۵</span>
+              <h3 dir="ltr">OWASP Top 10</h3>
+              <p>درک مهم‌ترین ریسک‌های امنیتی برنامه‌های تحت وب.</p>
+            </div>
+          </div>
+          <div class="tl-item reveal" data-reveal="up">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <span class="tl-step">مرحله ۰۶</span>
+              <h3 dir="ltr">CTF</h3>
+              <p>به‌کارگیری مهارت‌ها در چالش‌های Capture The Flag و آزمایشگاه‌ها.</p>
+            </div>
+          </div>
+          <div class="tl-item reveal" data-reveal="up">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <span class="tl-step">مرحله ۰۷</span>
+              <h3 dir="ltr">LPIC-1</h3>
+              <p>آماده‌سازی برای یک گواهینامه شناخته‌شده مدیریت لینوکس.</p>
+            </div>
+          </div>
+          <div class="tl-item reveal" data-reveal="up">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <span class="tl-step">مرحله ۰۸</span>
+              <h3>تست نفوذ</h3>
+              <p>متدولوژی، شناسایی، مبانی بهره‌برداری و گزارش‌نویسی.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== گیت‌هاب ===== -->
+    <section class="section" id="github">
+      <div class="container">
+        <div class="section-head reveal" data-reveal="up">
+          <span class="section-index">۰۵</span>
+          <h2 class="section-title">گیت‌هاب <span class="accent">من</span></h2>
+          <p class="section-sub">جایی که مسیر یادگیری به‌صورت عمومی مستند می‌شود.</p>
+        </div>
+
+        <div class="github-card reveal" data-reveal="up">
+          <div class="gh-glow"></div>
+          <div class="gh-left">
+            <div class="gh-avatar" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="46" height="46" fill="currentColor" role="img" aria-label="لوگوی گیت‌هاب">
+                <path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 .1.8 1.2 1.6 1.6 2.6.9 1-.4 1.4-.8.1-.6.4-1 .7-1.3-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 5 18 5.3 18 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/>
+              </svg>
+            </div>
+            <div class="gh-id">
+              <h3 dir="ltr">@senatur</h3>
+              <p>دانشجوی لینوکس و امنیت سایبری</p>
+              <span class="gh-status"><span class="pulse-dot"></span>در حال ثبت کامیت‌های فعال</span>
+            </div>
+          </div>
+
+          <div class="gh-stats">
+            <div class="gh-stat"><span class="gh-num" data-count="4" data-fa="true">۰</span><span>مخزن</span></div>
+            <div class="gh-stat"><span class="gh-num" data-count="120" data-fa="true">۰</span><span>مشارکت</span></div>
+            <div class="gh-stat"><span class="gh-num" data-count="8" data-fa="true">۰</span><span>ستاره</span></div>
+          </div>
+
+          <div class="gh-featured">
+            <h4>مخازن منتخب</h4>
+            <ul>
+              <li><span class="repo-name" dir="ltr">linux-essentials-lab</span><span class="repo-lang"><span class="lang-dot"></span>Shell</span></li>
+              <li><span class="repo-name" dir="ltr">linux-commands-reference</span><span class="repo-lang"><span class="lang-dot"></span>Markdown</span></li>
+              <li><span class="repo-name" dir="ltr">network-fundamentals-notes</span><span class="repo-lang"><span class="lang-dot"></span>Docs</span></li>
+              <li><span class="repo-name" dir="ltr">portfolio-website</span><span class="repo-lang"><span class="lang-dot"></span>HTML/CSS/JS</span></li>
+            </ul>
+          </div>
+
+          <a href="https://github.com/senatur" target="_blank" rel="noopener" class="btn btn-primary gh-btn"><span>مشاهده گیت‌هاب</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ارتباط ===== -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-head reveal" data-reveal="up">
+          <span class="section-index">۰۶</span>
+          <h2 class="section-title">ارتباط با <span class="accent">من</span></h2>
+          <p class="section-sub">پذیرای یادگیری، همکاری و فرصت‌های جدید.</p>
+        </div>
+
+        <div class="contact-grid">
+          <a href="#" class="contact-card reveal" data-reveal="up">
+            <span class="contact-icon">✉</span>
+            <span class="contact-type">ایمیل</span>
+            <span class="contact-value">به زودی</span>
+          </a>
+          <a href="https://github.com/senatur" target="_blank" rel="noopener" class="contact-card reveal" data-reveal="up">
+            <span class="contact-icon">⌨</span>
+            <span class="contact-type">گیت‌هاب</span>
+            <span class="contact-value" dir="ltr">github.com/senatur</span>
+          </a>
+          <a href="#" class="contact-card reveal" data-reveal="up">
+            <span class="contact-icon">in</span>
+            <span class="contact-type">لینکدین</span>
+            <span class="contact-value">به زودی</span>
+          </a>
+          <a href="https://t.me/Ospkp" target="_blank" rel="noopener" class="contact-card reveal" data-reveal="up">
+            <span class="contact-icon">✈</span>
+            <span class="contact-type">تلگرام</span>
+            <span class="contact-value" dir="ltr">@Ospkp</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> ابول · دانشجوی لینوکس و امنیت سایبری</p>
+      <p class="footer-tag"><span class="pulse-dot"></span> یادگیری. ساختن. پیشرفت.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
